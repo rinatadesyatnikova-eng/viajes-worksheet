@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>¡Nos vamos de viaje!</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="worksheet">
+
+        <header class="hero">
+
+            <p class="level">ESPAÑOL · A2–B1</p>
+
+            <h1>¡Nos vamos de viaje!</h1>
+
+            <p class="subtitle">
+                Prepara tu viaje y practica español por el camino.
+            </p>
+
+        </header>
+
+
+        <section class="task">
+
+            <div class="task-number">01</div>
+
+            <div class="task-content">
+
+                <p class="task-type">VOCABULARIO</p>
+
+                <h2>Prepara tu viaje</h2>
+
+                <p class="instruction">
+                    Relaciona cada palabra con su significado.
+                </p>
+
+
+                <div class="matching">
+
+                    <div class="words">
+
+                        <button data-word="equipaje">
+                            el equipaje
+                        </button>
+
+                        <button data-word="escala">
+                            la escala
+                        </button>
+
+                        <button data-word="alojamiento">
+                            el alojamiento
+                        </button>
+
+                        <button data-word="ida">
+                            la ida
+                        </button>
+
+                    </div>
+
+
+                    <div class="answers">
+
+                        <button data-answer="escala">
+                            пересадка
+                        </button>
+
+                        <button data-answer="ida">
+                            путь туда
+                        </button>
+
+                        <button data-answer="equipaje">
+                            багаж
+                        </button>
+
+                        <button data-answer="alojamiento">
+                            жильё
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button class="check" disabled>
+                    COMPROBAR
+                </button>
+
+                <div class="feedback"></div>
+
+            </div>
+
+        </section>
+
+    <!-- ==============================
+     TASK 02 — AIRPORT
+     ============================== -->
+
+<section class="task airport-task">
+
+    <div class="task-number">02</div>
+
+    <div class="task-content">
+
+        <p class="task-type">EN EL AEROPUERTO</p>
+
+        <h2>Lee la tarjeta de embarque</h2>
+
+        <p class="instruction">
+            Sofía está en el aeropuerto. Lee la información y ayúdala
+            a encontrar las respuestas correctas.
+        </p>
+
+
+        <!-- BOARDING PASS -->
+
+        <div class="boarding-pass">
+
+            <div class="ticket-main">
+
+                <div class="ticket-top">
+                    <span class="ticket-label">TARJETA DE EMBARQUE</span>
+                    <span class="ticket-airline">AIRESPAÑA</span>
+                </div>
+
+
+                <div class="ticket-route">
+
+                    <div>
+                        <span class="airport-code">MAD</span>
+                        <span class="city">Madrid</span>
+                    </div>
+
+                    <div class="flight-line">
+                        <span>✈</span>
+                    </div>
+
+                    <div>
+                        <span class="airport-code">BCN</span>
+                        <span class="city">Barcelona</span>
+                    </div>
+
+                </div>
+
+
+                <div class="ticket-info">
+
+                    <div>
+                        <span class="info-label">PASAJERA</span>
+                        <strong>Sofía Martínez</strong>
+                    </div>
+
+                    <div>
+                        <span class="info-label">VUELO</span>
+                        <strong>AE 417</strong>
+                    </div>
+
+                    <div>
+                        <span class="info-label">FECHA</span>
+                        <strong>14 OCT</strong>
+                    </div>
+
+                    <div>
+                        <span class="info-label">SALIDA</span>
+                        <strong>10:35</strong>
+                    </div>
+
+                    <div>
+                        <span class="info-label">EMBARQUE</span>
+                        <strong>09:55</strong>
+                    </div>
+
+                    <div>
+                        <span class="info-label">PUERTA</span>
+                        <strong>B18</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ticket-side">
+
+                <span class="info-label">ASIENTO</span>
+
+                <strong class="seat">
+                    12A
+                </strong>
+
+                <span class="info-label luggage-label">
+                    EQUIPAJE
+                </span>
+
+                <strong>1 maleta</strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTIONS -->
+
+        <div class="airport-questions">
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="airport-question"
+                 data-question="1">
+
+                <p class="question-number">
+                    SITUACIÓN 01
+                </p>
+
+                <h3>
+                    Son las 09:40. ¿Qué debe hacer Sofía?
+                </h3>
+
+                <div class="options">
+
+                    <button
+                        data-question="1"
+                        data-correct="true">
+                        Ir a la puerta B18
+                    </button>
+
+                    <button
+                        data-question="1"
+                        data-correct="false">
+                        Recoger su equipaje
+                    </button>
+
+                    <button
+                        data-question="1"
+                        data-correct="false">
+                        Buscar un hotel
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="airport-question"
+                 data-question="2">
+
+                <p class="question-number">
+                    SITUACIÓN 02
+                </p>
+
+                <h3>
+                    Un empleado pregunta:
+                    «¿Cuál es su asiento?»
+                </h3>
+
+                <div class="options">
+
+                    <button
+                        data-question="2"
+                        data-correct="false">
+                        B18
+                    </button>
+
+                    <button
+                        data-question="2"
+                        data-correct="true">
+                        12A
+                    </button>
+
+                    <button
+                        data-question="2"
+                        data-correct="false">
+                        AE 417
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="airport-question"
+                 data-question="3">
+
+                <p class="question-number">
+                    SITUACIÓN 03
+                </p>
+
+                <h3>
+                    ¿A qué hora empieza el embarque?
+                </h3>
+
+                <div class="options">
+
+                    <button
+                        data-question="3"
+                        data-correct="true">
+                        09:55
+                    </button>
+
+                    <button
+                        data-question="3"
+                        data-correct="false">
+                        10:35
+                    </button>
+
+                    <button
+                        data-question="3"
+                        data-correct="false">
+                        14:00
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="airport-check" disabled>
+            COMPROBAR
+        </button>
+
+        <div class="airport-feedback"></div>
+
+    </div>
+
+</section>
+
+<!-- ==============================
+     TASK 03 — ITINERARY
+     ============================== -->
+
+<section class="task itinerary-task">
+
+    <div class="task-number">03</div>
+
+    <div class="task-content">
+
+        <p class="task-type">EL ITINERARIO</p>
+
+        <h2>Organiza el viaje</h2>
+
+        <p class="instruction">
+            Sofía está lista para viajar, pero su itinerario está desordenado.
+            Arrastra las etapas y ponlas en el orden correcto.
+        </p>
+
+
+        <div class="route-header">
+
+            <div>
+                <span class="route-code">MAD</span>
+                <span class="route-city">Madrid</span>
+            </div>
+
+            <div class="route-line">
+                <span>✈</span>
+            </div>
+
+            <div>
+                <span class="route-code">BCN</span>
+                <span class="route-city">Barcelona</span>
+            </div>
+
+        </div>
+
+
+        <!-- DRAG & DROP -->
+
+        <div class="itinerary-list">
+
+            <div class="itinerary-card"
+                 draggable="true"
+                 data-step="4">
+
+                <span class="drag-handle">⋮⋮</span>
+
+                <div>
+                    <strong>Buscar la puerta de embarque</strong>
+                    <span>Encontrar la puerta B18.</span>
+                </div>
+
+            </div>
+
+
+            <div class="itinerary-card"
+                 draggable="true"
+                 data-step="1">
+
+                <span class="drag-handle">⋮⋮</span>
+
+                <div>
+                    <strong>Llegar al aeropuerto</strong>
+                    <span>Estar allí con suficiente tiempo.</span>
+                </div>
+
+            </div>
+
+
+            <div class="itinerary-card"
+                 draggable="true"
+                 data-step="6">
+
+                <span class="drag-handle">⋮⋮</span>
+
+                <div>
+                    <strong>Recoger el equipaje</strong>
+                    <span>Buscar la maleta después del vuelo.</span>
+                </div>
+
+            </div>
+
+
+            <div class="itinerary-card"
+                 draggable="true"
+                 data-step="3">
+
+                <span class="drag-handle">⋮⋮</span>
+
+                <div>
+                    <strong>Pasar el control de seguridad</strong>
+                    <span>Prepararse para el control.</span>
+                </div>
+
+            </div>
+
+
+            <div class="itinerary-card"
+                 draggable="true"
+                 data-step="5">
+
+                <span class="drag-handle">⋮⋮</span>
+
+                <div>
+                    <strong>Subir al avión</strong>
+                    <span>Presentar la tarjeta de embarque.</span>
+                </div>
+
+            </div>
+
+
+            <div class="itinerary-card"
+                 draggable="true"
+                 data-step="2">
+
+                <span class="drag-handle">⋮⋮</span>
+
+                <div>
+                    <strong>Facturar el equipaje</strong>
+                    <span>Dejar la maleta en el mostrador.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="itinerary-check">
+            COMPROBAR RUTA
+        </button>
+
+        <div class="itinerary-feedback"></div>
+
+    </div>
+
+</section>
+
+<!-- ==============================
+     TASK 04 — MI VIAJE
+     ============================== -->
+
+<section class="task my-trip-task">
+
+    <div class="task-number">04</div>
+
+    <div class="task-content">
+
+        <p class="task-type">MI VIAJE</p>
+
+        <h2>Diseña tu próximo viaje</h2>
+
+        <p class="instruction">
+            Toma tus decisiones y crea tu propia tarjeta de viaje.
+            Después, úsala para hablar durante un minuto.
+        </p>
+
+
+        <div class="trip-builder">
+
+            <!-- DESTINATION -->
+
+            <div class="builder-section">
+
+                <p class="builder-label">
+                    01 · DESTINO
+                </p>
+
+                <div class="choice-grid destination-options">
+
+                    <button data-value="Barcelona">
+                        <span class="choice-code">BCN</span>
+                        Barcelona
+                    </button>
+
+                    <button data-value="Buenos Aires">
+                        <span class="choice-code">BUE</span>
+                        Buenos Aires
+                    </button>
+
+                    <button data-value="Ciudad de México">
+                        <span class="choice-code">MEX</span>
+                        Ciudad de México
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRANSPORT -->
+
+            <div class="builder-section">
+
+                <p class="builder-label">
+                    02 · TRANSPORTE
+                </p>
+
+                <div class="choice-grid transport-options">
+
+                    <button data-value="avión">
+                        ✈ Avión
+                    </button>
+
+                    <button data-value="tren">
+                        → Tren
+                    </button>
+
+                    <button data-value="coche">
+                        ◇ Coche
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCOMMODATION -->
+
+            <div class="builder-section">
+
+                <p class="builder-label">
+                    03 · ALOJAMIENTO
+                </p>
+
+                <div class="choice-grid accommodation-options">
+
+                    <button data-value="un hotel">
+                        Hotel
+                    </button>
+
+                    <button data-value="un apartamento">
+                        Apartamento
+                    </button>
+
+                    <button data-value="un hostal">
+                        Hostal
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- DURATION -->
+
+            <div class="builder-section">
+
+                <p class="builder-label">
+                    04 · DURACIÓN
+                </p>
+
+                <div class="choice-grid duration-options">
+
+                    <button data-value="3 días">
+                        3 días
+                    </button>
+
+                    <button data-value="5 días">
+                        5 días
+                    </button>
+
+                    <button data-value="una semana">
+                        1 semana
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITIES -->
+
+            <div class="builder-section">
+
+                <p class="builder-label">
+                    05 · ACTIVIDADES
+                </p>
+
+                <p class="builder-hint">
+                    Elige dos actividades.
+                </p>
+
+                <div class="choice-grid activity-options">
+
+                    <button data-value="visitar museos">
+                        Visitar museos
+                    </button>
+
+                    <button data-value="probar la comida local">
+                        Probar la comida local
+                    </button>
+
+                    <button data-value="ir a la playa">
+                        Ir a la playa
+                    </button>
+
+                    <button data-value="hacer fotos">
+                        Hacer fotos
+                    </button>
+
+                    <button data-value="conocer la ciudad">
+                        Conocer la ciudad
+                    </button>
+
+                    <button data-value="ir de compras">
+                        Ir de compras
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="create-trip" disabled>
+            CREAR MI VIAJE
+        </button>
+
+
+        <!-- GENERATED TRAVEL CARD -->
+
+        <div class="travel-result hidden">
+
+            <div class="travel-result-top">
+
+                <div>
+                    <span class="result-small">
+                        MI PRÓXIMO VIAJE
+                    </span>
+
+                    <h3 class="result-destination">
+                        Barcelona
+                    </h3>
+                </div>
+
+                <div class="result-stamp">
+                    LISTO
+                </div>
+
+            </div>
+
+
+            <div class="result-route">
+
+                <span>HOME</span>
+
+                <div class="result-route-line">
+                    ✈
+                </div>
+
+                <span class="result-code">
+                    BCN
+                </span>
+
+            </div>
+
+
+            <div class="result-info">
+
+                <div>
+                    <span>TRANSPORTE</span>
+                    <strong class="result-transport"></strong>
+                </div>
+
+                <div>
+                    <span>ALOJAMIENTO</span>
+                    <strong class="result-accommodation"></strong>
+                </div>
+
+                <div>
+                    <span>DURACIÓN</span>
+                    <strong class="result-duration"></strong>
+                </div>
+
+            </div>
+
+
+            <div class="speaking-box">
+
+                <p class="speaking-label">
+                    SPEAKING · 60 SEGUNDOS
+                </p>
+
+                <p class="speaking-text"></p>
+
+                <p class="challenge">
+                    + B1 CHALLENGE · Añade un posible problema
+                    durante el viaje y explica cómo lo solucionarías.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+<script src="./script.js"></script>
+
+</body>
+
+</html>

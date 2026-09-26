@@ -1,0 +1,1365 @@
+/* ==============================
+   VIAJES WORKBOOK
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: #e9e4da;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #233347;
+
+    padding: 50px 20px;
+}
+
+
+/* ==============================
+   WORKSHEET
+   ============================== */
+
+.worksheet {
+    width: 100%;
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    background-color: #f9f6ef;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 50px rgba(35, 51, 71, 0.15);
+}
+
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    position: relative;
+
+    padding: 60px 70px 50px;
+
+    background-color: #233347;
+    color: #f9f6ef;
+
+    overflow: hidden;
+}
+
+
+/* little route decoration */
+
+.hero::after {
+    content: "MAD  · · · · ·  BCN";
+
+    position: absolute;
+
+    right: 55px;
+    top: 35px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #d78665;
+}
+
+
+.level {
+    margin: 0 0 15px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #d78665;
+}
+
+
+h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 55px;
+    font-weight: normal;
+
+    line-height: 1.1;
+}
+
+
+.subtitle {
+    max-width: 500px;
+
+    margin: 18px 0 0;
+
+    font-size: 16px;
+
+    color: #d8dde2;
+}
+
+
+/* ==============================
+   TASK
+   ============================== */
+
+.task {
+    display: flex;
+
+    gap: 30px;
+
+    padding: 55px 70px 65px;
+}
+
+
+.task-number {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 45px;
+
+    color: #c4b9a8;
+
+    line-height: 1;
+}
+
+
+.task-content {
+    flex: 1;
+}
+
+
+.task-type {
+    margin: 0 0 8px;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #d06f4f;
+}
+
+
+h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+    font-weight: normal;
+
+    color: #233347;
+}
+
+
+.instruction {
+    margin: 8px 0 30px;
+
+    color: #6f7882;
+
+    font-size: 15px;
+}
+
+
+/* ==============================
+   MATCHING
+   ============================== */
+
+.matching {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+
+    position: relative;
+}
+
+
+/* dashed boarding-pass line */
+
+.matching::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+    bottom: 0;
+
+    border-left: 1px dashed #c8bca9;
+}
+
+
+.words,
+.answers {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* ==============================
+   WORD CARDS
+   ============================== */
+
+.words button,
+.answers button {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    color: #233347;
+
+    border: 1px solid #d7d0c4;
+
+    border-radius: 8px;
+
+    padding: 14px 18px;
+
+    margin: 0;
+
+    font-size: 16px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.words button:hover,
+.answers button:hover {
+    border-color: #d06f4f;
+
+    transform: translateY(-1px);
+}
+
+
+/* Selected */
+
+.words button.selected,
+.answers button.selected {
+    background-color: #233347;
+
+    border-color: #233347;
+
+    color: white;
+}
+
+
+/* ==============================
+   CHECK
+   ============================== */
+
+.check {
+    display: block;
+
+    margin: 35px auto 0;
+
+    padding: 13px 40px;
+
+    background-color: #d06f4f;
+
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.check:hover {
+    background-color: #b85d40;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   FEEDBACK
+   ============================== */
+
+.feedback {
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+
+    color: #53616f;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .hero {
+        padding: 55px 30px 35px;
+    }
+
+    .hero::after {
+        right: 25px;
+        top: 25px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .task {
+        padding: 40px 30px;
+    }
+
+    .task-number {
+        display: none;
+    }
+
+    .matching {
+        gap: 20px;
+    }
+
+}
+/* Paired words */
+
+.words button.paired,
+.answers button.paired {
+    background-color: #eee9df;
+    border-color: #b9ad9b;
+}
+
+
+/* Check isn't ready */
+
+.check:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* Correct answers */
+
+.words button.correct-pair,
+.answers button.correct-pair {
+    background-color: #e2eadf;
+    border-color: #718267;
+    color: #40513b;
+}
+
+
+/* Wrong answers */
+
+.words button.wrong-pair,
+.answers button.wrong-pair {
+    background-color: #f0dddd;
+    border-color: #a25c5c;
+    color: #743d3d;
+}
+
+
+/* Feedback */
+
+.feedback.correct {
+    color: #536b49;
+}
+
+.feedback.wrong {
+    color: #9a4f4f;
+}
+/* ==============================
+   TASK 02
+   ============================== */
+
+.airport-task {
+    border-top: 1px dashed #c8bca9;
+}
+
+
+/* ==============================
+   BOARDING PASS
+   ============================== */
+
+.boarding-pass {
+    display: grid;
+
+    grid-template-columns: 1fr 150px;
+
+    margin: 35px 0 45px;
+
+    background-color: white;
+
+    border: 1px solid #233347;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+.ticket-main {
+    padding: 25px 30px;
+}
+
+
+.ticket-side {
+    padding: 25px 20px;
+
+    border-left: 1px dashed #a8a8a8;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.ticket-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.ticket-label {
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #d06f4f;
+}
+
+
+.ticket-airline {
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #233347;
+}
+
+
+/* ROUTE */
+
+.ticket-route {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.ticket-route > div:first-child {
+    text-align: left;
+}
+
+
+.ticket-route > div:last-child {
+    text-align: right;
+}
+
+
+.airport-code {
+    display: block;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 40px;
+
+    color: #233347;
+}
+
+
+.city {
+    font-size: 12px;
+
+    color: #77818b;
+}
+
+
+.flight-line {
+    position: relative;
+
+    text-align: center;
+
+    color: #d06f4f;
+}
+
+
+.flight-line::before,
+.flight-line::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 25px;
+
+    border-top: 1px dashed #c8bca9;
+
+    vertical-align: middle;
+
+    margin: 0 5px;
+}
+
+
+/* TICKET INFORMATION */
+
+.ticket-info {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.ticket-info div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.info-label {
+    font-size: 8px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    color: #8c9399;
+}
+
+
+.ticket-info strong {
+    font-size: 13px;
+
+    color: #233347;
+}
+
+
+.seat {
+    margin: 8px 0 25px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 36px;
+
+    color: #d06f4f;
+}
+
+
+.luggage-label {
+    margin-bottom: 7px;
+}
+
+
+/* ==============================
+   AIRPORT QUESTIONS
+   ============================== */
+
+.airport-questions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.airport-question {
+    padding: 22px;
+
+    background-color: #f1ede5;
+
+    border-radius: 10px;
+}
+
+
+.question-number {
+    margin: 0 0 8px;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #d06f4f;
+}
+
+
+.airport-question h3 {
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+    font-weight: normal;
+
+    color: #233347;
+}
+
+
+.options {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+.options button {
+    min-height: 55px;
+
+    padding: 10px;
+
+    background-color: white;
+
+    border: 1px solid #d4ccc0;
+    border-radius: 7px;
+
+    color: #233347;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.options button:hover {
+    border-color: #d06f4f;
+}
+
+
+.options button.selected-option {
+    background-color: #233347;
+
+    border-color: #233347;
+
+    color: white;
+}
+
+
+/* RESULTS */
+
+.options button.correct-option {
+    background-color: #e2eadf;
+
+    border-color: #718267;
+
+    color: #40513b;
+}
+
+
+.options button.wrong-option {
+    background-color: #f0dddd;
+
+    border-color: #a25c5c;
+
+    color: #743d3d;
+}
+
+
+/* CHECK */
+
+.airport-check {
+    display: block;
+
+    margin: 30px auto 0;
+
+    padding: 13px 40px;
+
+    background-color: #d06f4f;
+
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.airport-check:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+
+.airport-feedback {
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+}
+
+
+.airport-feedback.correct {
+    color: #536b49;
+}
+
+
+.airport-feedback.wrong {
+    color: #9a4f4f;
+}
+/* ==============================
+   TASK 03 — ITINERARY
+   ============================== */
+
+.itinerary-task {
+    border-top: 1px dashed #c8bca9;
+}
+
+
+/* ROUTE */
+
+.route-header {
+    display: grid;
+
+    grid-template-columns: 1fr 2fr 1fr;
+
+    align-items: center;
+
+    margin: 35px 0;
+
+    padding: 20px 25px;
+
+    background-color: #233347;
+
+    border-radius: 10px;
+
+    color: white;
+}
+
+
+.route-header > div:first-child {
+    text-align: left;
+}
+
+
+.route-header > div:last-child {
+    text-align: right;
+}
+
+
+.route-code {
+    display: block;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+}
+
+
+.route-city {
+    font-size: 10px;
+
+    color: #cbd1d6;
+}
+
+
+.route-line {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #d78665;
+}
+
+
+.route-line::before,
+.route-line::after {
+    content: "";
+
+    flex: 1;
+
+    border-top: 1px dashed #788493;
+}
+
+
+/* ==============================
+   ITINERARY CARDS
+   ============================== */
+
+.itinerary-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.itinerary-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 17px 20px;
+
+    background-color: white;
+
+    border: 1px solid #d7d0c4;
+    border-radius: 9px;
+
+    cursor: grab;
+
+    transition: 0.2s ease;
+
+    user-select: none;
+}
+
+
+.itinerary-card:hover {
+    border-color: #d06f4f;
+
+    transform: translateX(3px);
+}
+
+
+.itinerary-card:active {
+    cursor: grabbing;
+}
+
+
+.itinerary-card.dragging {
+    opacity: 0.35;
+
+    transform: scale(0.98);
+}
+
+
+.drag-handle {
+    font-size: 22px;
+
+    color: #b3aa9c;
+
+    letter-spacing: -5px;
+}
+
+
+.itinerary-card div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.itinerary-card strong {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+    font-weight: normal;
+
+    color: #233347;
+}
+
+
+.itinerary-card div span {
+    font-size: 12px;
+
+    color: #7b838b;
+}
+
+
+/* CORRECT / WRONG */
+
+.itinerary-card.correct-step {
+    background-color: #e2eadf;
+
+    border-color: #718267;
+}
+
+
+.itinerary-card.wrong-step {
+    background-color: #f0dddd;
+
+    border-color: #a25c5c;
+}
+
+
+/* ==============================
+   ITINERARY CHECK
+   ============================== */
+
+.itinerary-check {
+    display: block;
+
+    margin: 30px auto 0;
+
+    padding: 13px 40px;
+
+    background-color: #d06f4f;
+
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.itinerary-check:hover {
+    background-color: #b85d40;
+
+    transform: translateY(-2px);
+}
+
+
+.itinerary-feedback {
+    margin-top: 22px;
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+}
+
+
+.itinerary-feedback.correct {
+    color: #536b49;
+}
+
+
+.itinerary-feedback.wrong {
+    color: #9a4f4f;
+}
+/* ==============================
+   TASK 04 — MY TRIP
+   ============================== */
+
+.my-trip-task {
+    border-top: 1px dashed #c8bca9;
+}
+
+
+/* BUILDER */
+
+.trip-builder {
+    margin-top: 35px;
+}
+
+
+.builder-section {
+    padding: 25px 0;
+
+    border-bottom: 1px solid #ddd5c8;
+}
+
+
+.builder-section:first-child {
+    border-top: 1px solid #ddd5c8;
+}
+
+
+.builder-label {
+    margin: 0 0 15px;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #d06f4f;
+}
+
+
+.builder-hint {
+    margin: -8px 0 15px;
+
+    font-size: 12px;
+
+    color: #8a9197;
+}
+
+
+/* OPTIONS */
+
+.choice-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+.choice-grid button {
+    min-height: 60px;
+
+    padding: 12px 15px;
+
+    background-color: white;
+
+    border: 1px solid #d7d0c4;
+    border-radius: 8px;
+
+    color: #233347;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.choice-grid button:hover {
+    border-color: #d06f4f;
+
+    transform: translateY(-2px);
+}
+
+
+.choice-grid button.trip-selected {
+    background-color: #233347;
+
+    border-color: #233347;
+
+    color: white;
+}
+
+
+.choice-code {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+}
+
+
+/* CREATE BUTTON */
+
+.create-trip {
+    display: block;
+
+    margin: 35px auto 0;
+
+    padding: 14px 42px;
+
+    background-color: #d06f4f;
+
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.create-trip:hover {
+    background-color: #b85d40;
+
+    transform: translateY(-2px);
+}
+
+
+.create-trip:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ==============================
+   GENERATED TRAVEL CARD
+   ============================== */
+
+.travel-result {
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background-color: #233347;
+
+    border-radius: 12px;
+
+    color: white;
+
+    animation: revealTrip 0.5s ease;
+}
+
+
+.travel-result.hidden {
+    display: none;
+}
+
+
+@keyframes revealTrip {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.travel-result-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+
+.result-small {
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #d78665;
+}
+
+
+.result-destination {
+    margin: 6px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+    font-weight: normal;
+
+    color: white;
+}
+
+
+.result-stamp {
+    padding: 8px 12px;
+
+    border: 1px solid #d78665;
+    border-radius: 50%;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #d78665;
+
+    transform: rotate(8deg);
+}
+
+
+/* ROUTE */
+
+.result-route {
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 30px 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+}
+
+
+.result-route-line {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #d78665;
+}
+
+
+.result-route-line::before,
+.result-route-line::after {
+    content: "";
+
+    flex: 1;
+
+    border-top: 1px dashed #73808d;
+}
+
+
+.result-code {
+    color: #d78665;
+}
+
+
+/* INFO */
+
+.result-info {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-top: 1px solid #536170;
+    border-bottom: 1px solid #536170;
+}
+
+
+.result-info div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.result-info span {
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    color: #9da7b0;
+}
+
+
+.result-info strong {
+    font-size: 13px;
+}
+
+
+/* SPEAKING */
+
+.speaking-box {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    background-color: #f9f6ef;
+
+    border-radius: 8px;
+
+    color: #233347;
+}
+
+
+.speaking-label {
+    margin: 0 0 12px;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #d06f4f;
+}
+
+
+.speaking-text {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+.challenge {
+    margin: 18px 0 0;
+
+    padding-top: 15px;
+
+    border-top: 1px dashed #c8bca9;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    color: #747c84;
+}
