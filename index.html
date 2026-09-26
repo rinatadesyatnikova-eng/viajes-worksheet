@@ -9,10 +9,74 @@
 </head>
 
 <body>
+    <!-- SCROLLING JOURNEY -->
+
+<div class="journey-progress">
+
+    <div class="journey-line"></div>
+
+    <div class="journey-start">
+        MAD
+    </div>
+
+    <div class="journey-plane">
+        ✈
+    </div>
+
+    <div class="journey-plane">
+    ✈︎
+</div>
+
+</div>
+    <!-- DECORATIVE TRAVEL BACKGROUND -->
+
+<div class="travel-decor decor-left">
+    <div class="passport-stamp">
+        <span>ESPAÑA</span>
+        <strong>MAD</strong>
+        <small>14 OCT</small>
+    </div>
+
+    <div class="coordinates">
+        40°25′N<br>
+        3°42′W
+    </div>
+</div>
+
+
+<div class="travel-decor decor-right">
+
+    <div class="compass">
+        <span class="north">N</span>
+        <span class="east">E</span>
+        <span class="south">S</span>
+        <span class="west">W</span>
+
+        <div class="compass-arrow">↑</div>
+    </div>
+
+    <div class="coordinates right-coordinates">
+        41°23′N<br>
+        2°10′E
+    </div>
+
+</div>
 
     <main class="worksheet">
 
         <header class="hero">
+            <div class="hero-route">
+
+    <span class="hero-city">MAD</span>
+
+    <div class="hero-flight">
+        <div class="hero-flight-line"></div>
+        <span class="hero-plane">✈</span>
+    </div>
+
+    <span class="hero-city">BCN</span>
+
+</div>
 
             <p class="level">ESPAÑOL · A2–B1</p>
 
@@ -362,9 +426,9 @@
                 <span class="route-city">Madrid</span>
             </div>
 
-            <div class="route-line">
-                <span>✈</span>
-            </div>
+           <div class="route-line">
+    <span>✈</span>
+</div>
 
             <div>
                 <span class="route-code">BCN</span>
@@ -492,6 +556,51 @@
             Toma tus decisiones y crea tu propia tarjeta de viaje.
             Después, úsala para hablar durante un minuto.
         </p>
+        <div class="trip-map">
+
+    <div class="map-label">TU RUTA</div>
+
+    <div class="map-world">
+        
+    
+
+      <div class="map-point madrid">
+
+    <span class="point-dot"></span>
+    <span class="point-name">MADRID</span>
+
+    
+
+</div>
+
+        <div class="map-point barcelona">
+            <span class="point-dot"></span>
+            <span class="point-name">BARCELONA</span>
+        </div>
+
+        <div class="map-point mexico">
+            <span class="point-dot"></span>
+            <span class="point-name">MÉXICO</span>
+        </div>
+
+        <div class="map-point buenos-aires">
+            <span class="point-dot"></span>
+            <span class="point-name">BUENOS AIRES</span>
+        </div>
+
+        <div class="map-placeholder">
+            EUROPE · ATLANTIC · AMERICAS
+        </div>
+
+    </div>
+
+   <div class="map-route-text">
+    MAD
+    <span class="map-transport">············</span>
+    <strong class="map-destination">?</strong>
+</div>
+
+</div>
 
 
         <div class="trip-builder">
@@ -536,17 +645,37 @@
 
                 <div class="choice-grid transport-options">
 
-                    <button data-value="avión">
-                        ✈ Avión
-                    </button>
+                   <button data-value="avión">
+    <span class="transport-svg">✈︎</span>
+    Avión
+</button>
 
-                    <button data-value="tren">
-                        → Tren
-                    </button>
+<button data-value="tren">
+    <svg class="transport-svg"
+         viewBox="0 0 24 24"
+         aria-hidden="true">
+        <rect x="6" y="3" width="12" height="15" rx="3"></rect>
+        <path d="M8 8h8"></path>
+        <path d="M8 12h8"></path>
+        <circle cx="9" cy="15" r="1"></circle>
+        <circle cx="15" cy="15" r="1"></circle>
+        <path d="M8 21l3-3"></path>
+        <path d="M16 21l-3-3"></path>
+    </svg>
+    Tren
+</button>
 
-                    <button data-value="coche">
-                        ◇ Coche
-                    </button>
+<button data-value="coche">
+    <svg class="transport-svg"
+         viewBox="0 0 24 24"
+         aria-hidden="true">
+        <path d="M5 11l2-5h10l2 5"></path>
+        <path d="M4 11h16v6H4z"></path>
+        <circle cx="7" cy="17" r="2"></circle>
+        <circle cx="17" cy="17" r="2"></circle>
+    </svg>
+    Coche
+</button>
 
                 </div>
 
@@ -653,6 +782,22 @@
 
 
         <button class="create-trip" disabled>
+            <div class="trip-progress">
+
+    <div class="progress-info">
+        <span>TU VIAJE</span>
+        <span class="progress-count">0 / 5</span>
+    </div>
+
+    <div class="progress-track">
+        <div class="progress-fill"></div>
+    </div>
+
+    <div class="progress-message">
+        Completa tus decisiones para continuar.
+    </div>
+
+</div>
             CREAR MI VIAJE
         </button>
 

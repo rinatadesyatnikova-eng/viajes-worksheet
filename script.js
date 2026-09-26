@@ -388,71 +388,58 @@ function getDragAfterElement(container, y) {
 // CHECK ROUTE
 // ==============================
 
-itineraryCheck.addEventListener(
-    "click",
-    function() {
+itineraryCheck.addEventListener("click", function() {
 
-        const currentCards =
-            itineraryList.querySelectorAll(
-                ".itinerary-card"
-            );
+    const currentCards =
+        [...itineraryList.querySelectorAll(".itinerary-card")];
 
-        let allCorrect = true;
+    let allCorrect = true;
 
 
-        currentCards.forEach(
-            function(card, index) {
+    currentCards.forEach(function(card, index) {
 
-                card.classList.remove(
-                    "correct-step",
-                    "wrong-step"
-                );
-
-
-                const correctPosition =
-                    Number(card.dataset.step);
-
-
-                if (correctPosition === index + 1) {
-
-                    card.classList.add(
-                        "correct-step"
-                    );
-
-                } else {
-
-                    card.classList.add(
-                        "wrong-step"
-                    );
-
-                    allCorrect = false;
-
-                }
-
-            }
+        card.classList.remove(
+            "correct-step",
+            "wrong-step"
         );
 
+        const step = Number(card.dataset.step);
+        const expectedStep = index + 1;
 
-        if (allCorrect) {
+        if (step === expectedStep) {
 
-            itineraryFeedback.innerHTML =
-                "✦ MAD → BCN · ¡Ruta completada! Sofía está lista para viajar.";
-
-            itineraryFeedback.className =
-                "itinerary-feedback correct";
+            card.classList.add("correct-step");
 
         } else {
 
-            itineraryFeedback.innerHTML =
-                "La ruta todavía tiene algunos problemas. Cambia el orden e inténtalo otra vez.";
+            card.classList.add("wrong-step");
 
-            itineraryFeedback.className =
-                "itinerary-feedback wrong";
-
+            allCorrect = false;
         }
 
+    });
+
+
+    if (allCorrect) {
+
+        itineraryFeedback.textContent =
+            "✦ MAD → BCN · ¡Ruta completada! Sofía está lista para viajar.";
+
+        itineraryFeedback.className =
+            "itinerary-feedback correct";
+
+
+
+    } else {
+
+        itineraryFeedback.textContent =
+            "La ruta todavía tiene algunos problemas. Cambia el orden e inténtalo otra vez.";
+
+        itineraryFeedback.className =
+            "itinerary-feedback wrong";
     }
-);
+
+});
 // ==============================
 // TASK 04 — MY TRIP
 // ==============================
@@ -499,16 +486,19 @@ function setupSingleChoice(buttons, property) {
 
         button.addEventListener("click", function() {
 
+            // Убираем прошлый выбор
             buttons.forEach(function(otherButton) {
                 otherButton.classList.remove("trip-selected");
             });
 
+            // Запоминаем новый выбор
             button.classList.add("trip-selected");
-
             trip[property] = button.dataset.value;
 
 
-            // Guardamos también el código del destino
+            // ==============================
+            // DESTINATION
+            // ==============================
 
             if (property === "destination") {
 
@@ -517,6 +507,24 @@ function setupSingleChoice(buttons, property) {
 
                 trip.code = code.textContent;
 
+                updateTravelMap(trip.code);
+                updateTransportOptions(trip.code);
+            }
+
+
+            // ==============================
+            // TRANSPORT
+            // ==============================
+
+            if (property === "transport") {
+
+                const mapTransport =
+                    document.querySelector(".map-transport");
+
+                mapTransport.textContent =
+                    "···· " +
+                    trip.transport.toUpperCase() +
+                    " ····";
             }
 
 
@@ -525,6 +533,57 @@ function setupSingleChoice(buttons, property) {
         });
 
     });
+
+}
+// ==============================
+// TRANSPORT AVAILABILITY
+// ==============================
+
+function updateTransportOptions(code) {
+
+    transportButtons.forEach(function(button) {
+
+        const transport = button.dataset.value;
+
+        // Сначала разрешаем всё
+        button.disabled = false;
+        button.classList.remove("transport-disabled");
+
+
+        // Buenos Aires и México:
+        // только самолёт
+
+        if (
+            (code === "BUE" || code === "MEX") &&
+            transport !== "avión"
+        ) {
+            button.disabled = true;
+            button.classList.add("transport-disabled");
+        }
+
+    });
+
+
+    // Если уже был выбран неподходящий транспорт —
+    // сбрасываем его
+
+    if (
+        (code === "BUE" || code === "MEX") &&
+        trip.transport &&
+        trip.transport !== "avión"
+    ) {
+
+        trip.transport = null;
+
+        transportButtons.forEach(function(button) {
+            button.classList.remove("trip-selected");
+        });
+
+        const mapTransport =
+            document.querySelector(".map-transport");
+
+        mapTransport.textContent = "············";
+    }
 
 }
 
@@ -600,20 +659,59 @@ activityButtons.forEach(function(button) {
 
 function updateTripButton() {
 
-    if (
-        trip.destination &&
-        trip.transport &&
-        trip.accommodation &&
-        trip.duration &&
-        trip.activities.length === 2
-    ) {
+    let completed = 0;
+
+    if (trip.destination) completed++;
+    if (trip.transport) completed++;
+    if (trip.accommodation) completed++;
+    if (trip.duration) completed++;
+
+    if (trip.activities.length === 2) {
+        completed++;
+    }
+
+
+    // PROGRESS
+
+    const progressCount =
+        document.querySelector(".progress-count");
+
+    const progressFill =
+        document.querySelector(".progress-fill");
+
+    const progressMessage =
+        document.querySelector(".progress-message");
+
+    const tripProgress =
+        document.querySelector(".trip-progress");
+
+
+    progressCount.textContent =
+        completed + " / 5";
+
+    progressFill.style.width =
+        (completed / 5) * 100 + "%";
+
+
+    // ALL READY
+
+    if (completed === 5) {
 
         createTripButton.disabled = false;
+
+        tripProgress.classList.add("complete");
+
+        progressMessage.textContent =
+            "¡Listo para viajar!";
 
     } else {
 
         createTripButton.disabled = true;
 
+        tripProgress.classList.remove("complete");
+
+        progressMessage.textContent =
+            "Completa tus decisiones para continuar.";
     }
 
 }
@@ -689,3 +787,133 @@ createTripButton.addEventListener(
 
     }
 );
+/* ==============================
+   INTERACTIVE MAP
+   ============================== */
+
+function updateTravelMap(code) {
+
+    const mapDestination =
+        document.querySelector(".map-destination");
+
+    const mapPoints =
+        document.querySelectorAll(".map-point");
+
+    /* убираем прошлую подсветку */
+
+    mapPoints.forEach(function(point) {
+        point.classList.remove("active-destination");
+    });
+
+
+    /* меняем код маршрута */
+
+    mapDestination.textContent = code;
+
+
+    /* находим нужный город */
+
+    let activePoint = null;
+
+    if (code === "BCN") {
+        activePoint =
+            document.querySelector(".barcelona");
+    }
+
+    if (code === "BUE") {
+        activePoint =
+            document.querySelector(".buenos-aires");
+    }
+
+    if (code === "MEX") {
+        activePoint =
+            document.querySelector(".mexico");
+    }
+
+
+    /* подсвечиваем его */
+
+    if (activePoint) {
+        activePoint.classList.add(
+            "active-destination"
+        );
+        
+
+/* запускаем маленькую анимацию заново */
+
+requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+        route.classList.add("visible");
+    });
+});
+    }
+}
+/* ==============================
+   SHOW ROUTE AFTER TRANSPORT
+   ============================== */
+
+function updateMapRoute() {
+
+    const route =
+        document.querySelector(".dynamic-route");
+
+    const plane =
+        document.querySelector(".route-plane");
+
+    /* маршрут показываем только когда
+       выбраны И город, И транспорт */
+
+    if (!trip.code || !trip.transport) {
+        route.classList.remove("visible");
+        return;
+    }
+
+
+    /* BARCELONA */
+
+    if (trip.code === "BCN") {
+        route.style.width = "8%";
+        route.style.transform = "rotate(-25deg)";
+    }
+
+
+    /* MÉXICO */
+
+    if (trip.code === "MEX") {
+        route.style.width = "43%";
+        route.style.transform = "rotate(172deg)";
+    }
+
+
+    /* BUENOS AIRES */
+
+    if (trip.code === "BUE") {
+        route.style.width = "42%";
+        route.style.transform = "rotate(132deg)";
+    }
+
+
+    /* транспорт */
+
+    if (trip.transport === "avión") {
+        plane.textContent = "✈︎";
+    }
+
+    if (trip.transport === "tren") {
+        plane.textContent = "◆";
+    }
+
+    if (trip.transport === "coche") {
+        plane.textContent = "●";
+    }
+
+
+    route.classList.remove("visible");
+
+    requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+            route.classList.add("visible");
+        });
+    });
+}
+
